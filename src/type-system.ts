@@ -30,7 +30,6 @@ import { fullFormats } from './formats'
 import type { CookieOptions } from './cookies'
 import { ValidationError } from './error'
 import type { MaybeArray } from './types'
-import { hasTransform } from './compose'
 
 const isISO8601 =
 	/(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/
@@ -89,7 +88,7 @@ Object.entries(fullFormats).forEach((formatEntry) => {
 	}
 })
 
-const t = Object.assign({}, Type)
+const t = Object.assign({ FormatRegistry, TypeRegistry }, Type)
 
 export namespace ElysiaTypeOptions {
 	export type Numeric = NumberOptions
